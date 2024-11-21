@@ -77,9 +77,9 @@ This project demonstrates an ETL (Extract, Transform, Load) pipeline deployed on
 ├── README.md                  # Project documentation
 ```
 ## Example Queries
-## MariaDB
-1. List all customers and their associated cities:
-sql
+## MySQL
+## 1. List all customers and their associated cities:
+
 
 SELECT CONCAT(c.firstName, ' ', c.lastName) AS CustomerName, ci.city, ci.state
 FROM Customer c
@@ -95,7 +95,7 @@ JOIN Product p ON ol.product_id = p.id
 GROUP BY o.id;
 
 ## 3. Get products purchased by a specific customer (e.g., customer ID = 1):
-sql
+
 
 SELECT p.name AS ProductName, ol.quantity
 FROM Orderline ol
@@ -103,12 +103,13 @@ JOIN Product p ON ol.product_id = p.id
 JOIN `Order` o ON ol.order_id = o.id
 WHERE o.customer_id = 1;
 
-MongoDB
-1. Find all orders placed by a specific customer (e.g., Customer ID = 1):
+## MongoDB
+
+## 1. Find all orders placed by a specific customer (e.g., Customer ID = 1):
 
 db.customers.find({ "Customer ID": 1 }, { "Orders": 1 });
 
-2. Get all products purchased by customers in a specific city (e.g., "Houston"):
+## 2. Get all products purchased by customers in a specific city (e.g., "Houston"):
 
 db.customers.find({ "Full Address": /Houston/ }, { "Orders.Items.Product Name": 1 });
 
@@ -120,7 +121,7 @@ db.products.find({}, { "Product Name": 1, "Buyers": 1 });
 Launch an AWS EC2 instance with the required Linux distribution.
 Install MariaDB and MongoDB on the instance.
 Clone this repository and upload the scripts to the instance.
-Run the SQL scripts in order:
+## Run the SQL scripts in order:
 create_schema.sql to set up the database schema.
 etl_script.sql to load and clean data.
 generate_aggregates.sql to generate JSON-based aggregates.
