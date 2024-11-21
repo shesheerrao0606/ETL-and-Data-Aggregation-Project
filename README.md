@@ -75,16 +75,17 @@ This project demonstrates an ETL (Extract, Transform, Load) pipeline deployed on
 │   ├── prod.json              # Product JSON aggregates
 │   ├── custom.json            # Additional custom JSON aggregates
 ├── README.md                  # Project documentation
-
+```
 ## Example Queries
-MariaDB
+## MariaDB
 1. List all customers and their associated cities:
 sql
 
 SELECT CONCAT(c.firstName, ' ', c.lastName) AS CustomerName, ci.city, ci.state
 FROM Customer c
 JOIN City ci ON c.zip = ci.zip;
-2. Get all orders with total price and shipping date:
+
+## 2. Get all orders with total price and shipping date:
 sql
 
 SELECT o.id AS OrderID, o.datePlaced, o.dateShipped, SUM(ol.quantity * p.currentPrice) AS OrderTotal
@@ -92,7 +93,8 @@ FROM `Order` o
 JOIN Orderline ol ON o.id = ol.order_id
 JOIN Product p ON ol.product_id = p.id
 GROUP BY o.id;
-3. Get products purchased by a specific customer (e.g., customer ID = 1):
+
+## 3. Get products purchased by a specific customer (e.g., customer ID = 1):
 sql
 
 SELECT p.name AS ProductName, ol.quantity
@@ -110,11 +112,11 @@ db.customers.find({ "Customer ID": 1 }, { "Orders": 1 });
 
 db.customers.find({ "Full Address": /Houston/ }, { "Orders.Items.Product Name": 1 });
 
-3. List all products with their buyers:
+## 3. List all products with their buyers:
 
 db.products.find({}, { "Product Name": 1, "Buyers": 1 });
 
-How to Run
+## How to Run
 Launch an AWS EC2 instance with the required Linux distribution.
 Install MariaDB and MongoDB on the instance.
 Clone this repository and upload the scripts to the instance.
