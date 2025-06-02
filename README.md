@@ -207,19 +207,3 @@ This final milestone focused on transitioning the denormalized JSON documents ge
   - How business logic shifts from SQL joins to aggregation pipelines and embedded arrays
 
 This milestone demonstrated how to migrate data from a relational system into a NoSQL environment, highlighting the differences in modeling, querying, and business-layer responsibility between SQL and document-based systems like MongoDB.
-
-## Final Notes
-
-This project was developed as part of a university-level database systems course, designed to simulate real-world enterprise database scenarios using open-source tools and cloud infrastructure. It covered the full lifecycle of building a production-ready data system — from schema design and ETL to automation, clustering, and NoSQL integration.
-
-Due to academic integrity policies, the source code and raw data files are not publicly shared. However, this repository documents the design decisions, architecture, and technologies used across each milestone. It serves as a reflection of the practical experience gained in managing complex database systems using both SQL and NoSQL paradigms.
-
-📫 **Want to learn more or collaborate on database-heavy projects?** Feel free to reach out.
-
-# Author:
-
-```bash
-Author: Sai Kiran Reddy Dyavadi
-Role  : Data Scientist
-Email : dyavadi324@gmail.com
-```
